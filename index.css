@@ -1,0 +1,134 @@
+* {
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Helvetica Neue", "Helvetica";
+}
+
+
+body {
+  margin: 0;
+  background: url("/rsrc/Forest Background Vector 12.jpg");
+  background-repeat: repeat-y;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  background-color: #9ACD32;
+  border: none;
+  color: white;
+  padding: 0px 32px 0px 32px;
+  text-align: center;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(189, 245, 77);
+  color: white;
+}
+
+#main_button {
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+div#sign_in_form {
+  font-weight: bold;
+  /* width: 50%;
+  height: 300px; */
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  visibility: hidden;
+}
+
+div#sign_in_form span {
+  font-size: 24px;
+  color: rgb(34, 102, 64);
+  padding-top: 50px 32px 0px 32px;
+
+}
+
+div.centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+div.main_div {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+div.top_nav {
+  z-index:9;
+  position: fixed;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #2E8B57;
+  align-items: center;
+}
+
+div.flexed {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  font-size: 24px;
+  color: #9ACD32;
+  font-weight: bold;
+  line-height: 150%;
+}
+
+
+/* from Rogers file */
+.form-signin {
+  width: 100%;
+  max-width: 800px;
+  padding: 50px;
+  /* margin: auto; */
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+/* .form-signin .form-control:focus {
+  z-index: 2;
+} */
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.hide-auth-error{
+  visibility: hidden;
+}
