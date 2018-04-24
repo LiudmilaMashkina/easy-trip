@@ -19,7 +19,7 @@ const navBar = `
 
 const signInForm = `
 <form class="form-signin">
-    <span>Please, sign in</span>
+    <span>Please, sign in first</span>
     </br></br>
     <label for="inputEmail" class="sr-only">Email address</label>
     <input type="text" name="username" id="username" class="form-control" placeholder="Email address" required autofocus>
