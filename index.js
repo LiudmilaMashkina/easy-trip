@@ -20,7 +20,7 @@ function createSignInForm() {
         .then(function(response){
           document.querySelector('#error').classList.add('hide-auth-error')
           localStorage.setItem('token', response.data.token)
-          window.location = '/protected.html'
+          window.location = '/trip_constructor.html'
         })
         .catch(function(error){
           document.querySelector('#error').classList.remove('hide-auth-error')

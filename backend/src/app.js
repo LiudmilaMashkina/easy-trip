@@ -18,14 +18,14 @@ app.use(bodyParser.json())
 app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/users'))
 
-// example routes, not part of an organized application   TODO
-// app.get('/protected',
-//         authController.isAuthenticated,
-//         function(req, res, next){ res.send({ id: req.claim.id, message: "For authenticated eyes only" }) })
-// app.get('/protected/:userId',
-//         authController.isAuthenticated,
-//         authController.isSelf,
-//         function(req, res, next){ res.send({ id: req.claim.id, message: "For your eyes only"}) })
+//example routes, not part of an organized application   TODO
+app.get('/protected',
+        authController.isAuthenticated,
+        function(req, res, next){ res.send({ id: req.claim.id, message: "For authenticated eyes only" }) })
+app.get('/protected/:userId',
+        authController.isAuthenticated,
+        authController.isSelf,
+        function(req, res, next){ res.send({ id: req.claim.id, message: "For your eyes only"}) })
 
 // Default Route
 app.use(function(req, res, next){

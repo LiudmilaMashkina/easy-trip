@@ -22,17 +22,18 @@ function login(req, res, next){
 
 
 function getAuthStatus(req, res, next){
+    console.log('getAuthStatus called')
     res.status(200).send({id:req.claim.id})
 }
 
 function isAuthenticated(req, res, next){
   console.log('isAuthenticated called')
   if(!req.headers.authorization){
-    return next({ status: 401, message: 'Unauthorized' })
+    return next({ status: 401, message: 'Unauthorized! Why am I here?' })  // <-- ?
   }
   const [scheme, credentials] = req.headers.authorization.split(' ')
 
-  jwt.verify(credentials, process.env.SECRET, (err, payload)=>{
+  jwt.verify(credentials, process.env.SECRET, (err, payload) => {
     if(err){
       return next({ status: 401, message: 'Unauthorized' })
     }

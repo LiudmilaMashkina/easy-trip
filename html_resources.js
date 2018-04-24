@@ -27,7 +27,7 @@ const signInForm = `
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autocomplete="off">
     <div id="error" class="hide-auth-error">Incorrect Username or Password</div>
     <div class="centered" style="width: 100%; height: 40%">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><a href="trip_constructor.html">Sign in</a></button>
     </div>
 </form>
 `

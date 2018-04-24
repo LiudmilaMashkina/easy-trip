@@ -6,10 +6,13 @@
 }
 
 
-body {
-  margin: 0;
+body.main_page {
   background: url("/rsrc/Forest Background Vector 12.jpg");
   background-repeat: repeat-y;
+}
+
+body {
+  margin: 0;
 }
 
 button {
