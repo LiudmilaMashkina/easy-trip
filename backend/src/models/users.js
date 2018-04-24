@@ -1,7 +1,6 @@
 const db = require('../../db')
 const bcrypt = require('bcrypt-as-promised')
 
-// Basic CRUD Methods
 function getOneByUserName(username){
   return (
     db('users')

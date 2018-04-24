@@ -1,6 +1,5 @@
 const userModel = require('../models/users')
 
-// Basic CRUD Methods
 function create(req, res, next){
   if(!req.body.username){
     return next({ status: 400, message: 'Bad username'})
@@ -17,6 +16,9 @@ function create(req, res, next){
   .catch(next)
 }
 
+// function getUsers(req, res, next) {
+  
+// }
 
 module.exports = {
   create

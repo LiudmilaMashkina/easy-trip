@@ -2,7 +2,6 @@ const db = require('../../db')
 const bcrypt = require('bcrypt-as-promised')
 const userModel = require('./users')
 
-// Basic CRUD Methods
 function login(username, password){
   let user
 

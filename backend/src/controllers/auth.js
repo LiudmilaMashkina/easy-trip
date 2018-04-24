@@ -1,7 +1,6 @@
 const authModel = require('../models/auth')
 const jwt = require('jsonwebtoken')
 
-// Basic CRUD Methods
 function login(req, res, next){
   if(!req.body.username){
     return next({ status: 400, message: 'Bad request'})
@@ -22,28 +21,27 @@ function login(req, res, next){
 }
 
 
-// function getAuthStatus(req, res, next){
-//     res.status(200).send({id:req.claim.id})
-// }
+function getAuthStatus(req, res, next){
+    res.status(200).send({id:req.claim.id})
+}
 
-// Quality of Life functions
-// function isAuthenticated(req, res, next){
-//   console.log('isAuthenticated called')
-//   if(!req.headers.authorization){
-//     return next({ status: 401, message: 'Unauthorized' })
-//   }
-//   const [scheme, credentials] = req.headers.authorization.split(' ')
+function isAuthenticated(req, res, next){
+  console.log('isAuthenticated called')
+  if(!req.headers.authorization){
+    return next({ status: 401, message: 'Unauthorized' })
+  }
+  const [scheme, credentials] = req.headers.authorization.split(' ')
 
-//   jwt.verify(credentials, process.env.SECRET, (err, payload)=>{
-//     if(err){
-//       return next({ status: 401, message: 'Unauthorized' })
-//     }
+  jwt.verify(credentials, process.env.SECRET, (err, payload)=>{
+    if(err){
+      return next({ status: 401, message: 'Unauthorized' })
+    }
 
-//     req.claim = payload
+    req.claim = payload
 
-//     next()
-//   })
-// }
+    next()
+  })
+}
 
 function isSelf(req, res, next){
 
@@ -55,6 +53,8 @@ function isSelf(req, res, next){
 }
 
 module.exports = {
-  login,
-  isSelf
+    isAuthenticated,
+    getAuthStatus,
+    isSelf,
+    login
 }
