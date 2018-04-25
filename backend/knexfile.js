@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'postgresql',
-    connection: 'postgresql://localhost/auth_dev',
+    connection: 'postgresql://localhost/easy_trip_db',
     migrations: {
       directory: path.join(__dirname, 'db', 'migrations')
     },
@@ -15,7 +15,7 @@ module.exports = {
 
   test: {
     client: 'postgresql',
-    connection: 'postgresql://localhost/auth_test',
+    connection: 'postgresql://localhost/easy_trip_db_test',
     migrations: {
       directory: path.join(__dirname, 'db', 'migrations')
     },
