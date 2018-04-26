@@ -1,4 +1,4 @@
-const TABLE_NAME = 'order'
+const TABLE_NAME = 'trip_order'
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable(TABLE_NAME, function(table){

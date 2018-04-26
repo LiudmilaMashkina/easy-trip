@@ -72,6 +72,15 @@ div.centered {
   align-items: flex-end;
 }
 
+div#trips-list {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.trip-node {
+  background-color: #ddd;
+}
+
 div.main_div {
   max-width: 100%;
   position: relative;
