@@ -12,7 +12,7 @@ function openConstructorPage() {
 }
 
 
-function getOneTrip(index) {
+function getOneTrip(index) { /// <-- should returning all trip locations
     return request(`/trips/${index}`)
     .then(function(response){
         const lastIndex = response.data.data.length - 1
@@ -30,9 +30,12 @@ function getAllTrips() {
             const lastIndex = a.length - 1
             const startName = a[0].location_a.location_name
             const lastName = a[lastIndex].location_b.location_name
-            trips.push(`${startName} - ${lastName}`)
+            const name = `${startName} - ${lastName}`
+            const id = a[0].trip_id
+            trips.push({name, id})
         })
         console.log(trips)
+        console.log(response.data.data.trip_id)
         return trips
     }) // <-- TODO: add catch
 }
@@ -48,14 +51,23 @@ function createTripNode(index, parent) {
     })
 }
 
+function loadConstructor(trip_id) {
+    window.location = '/trip_constructor.html'
+    console.log(trip_id)
+    //document.querySelector('#test').innerHTML = trip_id
+}
+
 function createTripsList() {
     const tripList = document.querySelector('#trips-list');
     getAllTrips().then(function(list) {
         list.forEach(function(item) {
             const div = document.createElement('div')
             div.classList.add('trip-node')
+            div.addEventListener("click", function() {
+                loadConstructor(item.id)
+            })
             const span = document.createElement('span')
-            span.innerHTML = item
+            span.innerHTML = item.name
             div.appendChild(span)
             tripList.appendChild(div)
         })
