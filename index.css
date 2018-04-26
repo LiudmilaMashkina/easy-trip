@@ -77,8 +77,10 @@ div#trips-list {
   background-color: white;
 }
 
-.trip-node {
+div.trip-node {
   background-color: #ddd;
+  width: 200px;
+  height: 20px;
 }
 
 div.main_div {

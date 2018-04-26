@@ -17,6 +17,7 @@ app.use(bodyParser.json())
 // Routes
 app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/users'))
+app.use('/trips', require('./routes/trips'))
 
 //example routes, not part of an organized application   TODO
 app.get('/protected',

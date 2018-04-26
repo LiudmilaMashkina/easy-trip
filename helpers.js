@@ -16,3 +16,4 @@ function request(path, method = 'get', body = null) {
     data: body
   })
 }
+

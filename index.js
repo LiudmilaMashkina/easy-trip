@@ -11,6 +11,57 @@ function openConstructorPage() {
     })
 }
 
+
+function getOneTrip(index) {
+    return request(`/trips/${index}`)
+    .then(function(response){
+        const lastIndex = response.data.data.length - 1
+        const startName = response.data.data[0].location_a.location_name
+        const lastName = response.data.data[lastIndex].location_b.location_name
+        return `${startName} - ${lastName}`
+    }) // <-- TODO: add catch
+}
+
+function getAllTrips() {
+    const trips = []
+    return request('/trips')
+    .then(function(response){
+        response.data.data.forEach(a => {
+            const lastIndex = a.length - 1
+            const startName = a[0].location_a.location_name
+            const lastName = a[lastIndex].location_b.location_name
+            trips.push(`${startName} - ${lastName}`)
+        })
+        console.log(trips)
+        return trips
+    }) // <-- TODO: add catch
+}
+
+function createTripNode(index, parent) {
+    const div = document.createElement('div')
+    div.classList.add('trip-node')
+    const span = document.createElement('span')
+    getOneTrip(1).then(function(names) {
+        span.innerHTML = names
+        div.appendChild(span)
+        parent.appendChild(div)
+    })
+}
+
+function createTripsList() {
+    const tripList = document.querySelector('#trips-list');
+    getAllTrips().then(function(list) {
+        list.forEach(function(item) {
+            const div = document.createElement('div')
+            div.classList.add('trip-node')
+            const span = document.createElement('span')
+            span.innerHTML = item
+            div.appendChild(span)
+            tripList.appendChild(div)
+        })
+    })
+}
+
 function openMainPage() {
     window.location = '/index.html'
 }
