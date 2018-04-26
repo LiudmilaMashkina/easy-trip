@@ -1,14 +1,6 @@
 const db = require('../../db')
 const bcrypt = require('bcrypt-as-promised')
 
-function getAllTrips() {
-
-    return (
-        db('trips')
-        .select(db.raw)
-    )
-}
-
 function getOneById(id) {
     return db('trip_order')
     .join('path', 'path.id', 'trip_order.path_id')

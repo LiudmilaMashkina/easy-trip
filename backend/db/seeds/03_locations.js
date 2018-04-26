@@ -17,7 +17,15 @@ exports.seed = function(knex, Promise) {
         {id: 5, location_name: "San Francisco", location_address: "San Francisco, California", location_map_ref: "https://goo.gl/maps/22jb7gag5SC2", 
         img_path: "rsrc/2017-06-21.jpg", stay_time_min: 1200, date_mm_dd_yyyy: "04/29/2018", description: "none"},
         {id: 6, location_name: "Salt Lake City", location_address: "Salt Lake City, Utah", location_map_ref: "https://goo.gl/maps/617croR4F2q", 
-        img_path: "rsrc/unnamed.jpg", stay_time_min: 180, date_mm_dd_yyyy: "04/30/2018", description: "none"}
+        img_path: "rsrc/unnamed.jpg", stay_time_min: 180, date_mm_dd_yyyy: "04/30/2018", description: "none"},
+        {id: 7, location_name: "Moscow", location_address: "Moscow, Russia", location_map_ref: "none", 
+        img_path: "rsrc/2560px-Moscow.jpg", stay_time_min: 0, date_mm_dd_yyyy: "10/15/2018", description: "none"},
+        {id: 8, location_name: "Minsk", location_address: "Minsk, Belarus", location_map_ref: "none", 
+        img_path: "rsrc/unnamed.jpg", stay_time_min: 1200, date_mm_dd_yyyy: "10/16/2018", description: "none"},
+        {id: 9, location_name: "Warsaw", location_address: "Warsaw, Poland", location_map_ref: "none", 
+        img_path: "rsrc/2560px-Poland-00808_-_Castle_Square_(31215382745).jpg", stay_time_min: 860, date_mm_dd_yyyy: "10/18/2018", description: "none"},
+        {id: 10, location_name: "Prague", location_address: "Prague, Czech Republic", location_map_ref: "none", 
+        img_path: "rsrc/prag5.jpg", stay_time_min: 0, date_mm_dd_yyyy: "10/20/2018", description: "none"}
       ]);
     })
     .then(() => {
