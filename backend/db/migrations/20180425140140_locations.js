@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
     table.string('location_address').notNullable()
     table.string('location_map_ref') // <- make not nullable later
     table.string('img_path')
-    table.integer('stay_time_h').notNullable()
+    table.integer('stay_time_min').notNullable()
     table.string('date_mm_dd_yyyy').notNullable()
     table.string('description')
   })
