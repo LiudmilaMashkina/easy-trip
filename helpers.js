@@ -17,6 +17,33 @@ function request(path, method = 'get', body = null) {
   })
 }
 
+function logOut() {
+  localStorage.removeItem('token')
+  window.location = '/index.html'
+}
+
+function createNavButtons() {
+  document.querySelector('.navbar').innerHTML = navBar
+
+  const nav = document.querySelector('#nav-buttons');
+
+  createUserButton(nav)
+}
+
+function createUserButton(parent) {
+  request('/auth/validate_token')
+  .then(function(response){
+      console.log(':)')
+      let btn = document.querySelector('#userB')
+      btn.innerHTML = userButton
+  })
+  .catch(function(error){
+      console.log(':(')
+      let btn = document.querySelector('#userB')
+      btn.innerHTML = logInButton
+  })
+}
+
 function getOneTrip(index) {
   const locations = [];
   return request(`/trips/${index}`)

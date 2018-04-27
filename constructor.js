@@ -9,10 +9,6 @@ const searchString = window.location.search.slice(1).split('&').map(ele => {
     }
 }, {})
 
-const nav = document.querySelector('#nav-buttons');
-const button = document.createElement('button');
-button.innerHTML = 'button'
-nav.appendChild(button)
 
 loadTrip(searchString.id)
 

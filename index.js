@@ -30,19 +30,6 @@ function getAllTrips() {
     }) // <-- TODO: add catch
 }
 
-// function createTripNode(index, parent) {
-//     const div = document.createElement('div')
-//     div.classList.add('trip-node')
-//     const span = document.createElement('span')
-//     getOneTrip(1).then(function(names) {
-//         span.innerHTML = names
-//         div.appendChild(span)
-//         parent.appendChild(div)
-//     })
-// }
-
-
-
 function loadConstructor(trip_id) {
     window.location = '/trip_constructor.html?id='+trip_id
     console.log(trip_id)
@@ -112,11 +99,6 @@ function createSignInForm() {
           document.querySelector('#error').classList.remove('hide-auth-error')
         })
       })
-}
-
-function logOut() {
-    localStorage.removeItem('token')
-    window.location = '/index.html'
 }
 
 function myFunction() {

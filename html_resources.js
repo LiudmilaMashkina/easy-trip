@@ -3,17 +3,8 @@ const navBar = `
     <div class="top_nav flexed">
         <span id="logo" style="padding-left: 30px" onclick="openMainPage()">EASYtrip</span>
         <div id="nav-buttons" style="float:right; display: flex; align-items:center">
-            <button type="button" id="my_trips_btn" onclick="openMyTrips()">My trips</button>
-            <div class="dropdown">
-                <button class="dropbtn" onclick="myFunction()">Log in
-                <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="myDropdown">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div> 
+            <button id="myTrips" onclick="openMyTrips()">My trips</button>
+            <div id="userB"></div>
         </div>
     </div>
 </div>
@@ -33,7 +24,19 @@ const signInForm = `
     </div>
 </form>
 `
-{/* <button id="login" type="button">
-                Log in
-            </button> */}
-            
+
+
+const userButton = `
+<div class="dropdown">
+    <button id=user_btn class="dropbtn" onclick="myFunction()">User name
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+        <a href="#" onclick="logOut()">Log out</a>
+    </div>
+</div> 
+`
+
+const logInButton = `
+<button onclick="showSignInForm()">Log in</button>
+`
