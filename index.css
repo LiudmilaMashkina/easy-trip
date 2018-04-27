@@ -79,6 +79,50 @@ div.centered-desk {
   align-items: center;
 }
 
+div.centered-info {
+  width: 100%;
+  outline: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.info-container {
+  display: flex;
+  width: 80%;
+  height: 300px;
+  background-color: white;
+}
+
+div.img-box {
+  overflow: hidden;
+	position: relative;
+  height: 100%;
+  width: 400px;
+}
+
+div.info-box {
+  padding: 30px;
+	position: relative;
+  height: 100%;
+  width: 400px;
+}
+
+img {
+  position:  absolute;
+  width: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+div.path-container {
+  width: 80%;
+  height: 300px;
+  background-color: white;
+}
+
 div#trips-list {
   border-radius: 10px;
   background-color: white;
