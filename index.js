@@ -11,17 +11,6 @@ function openConstructorPage() {
     })
 }
 
-
-function getOneTrip(index) { /// <-- should returning all trip locations
-    return request(`/trips/${index}`)
-    .then(function(response){
-        const lastIndex = response.data.data.length - 1
-        const startName = response.data.data[0].location_a.location_name
-        const lastName = response.data.data[lastIndex].location_b.location_name
-        return `${startName} - ${lastName}`
-    }) // <-- TODO: add catch
-}
-
 function getAllTrips() {
     const trips = []
     return request('/trips')
@@ -41,16 +30,18 @@ function getAllTrips() {
     }) // <-- TODO: add catch
 }
 
-function createTripNode(index, parent) {
-    const div = document.createElement('div')
-    div.classList.add('trip-node')
-    const span = document.createElement('span')
-    getOneTrip(1).then(function(names) {
-        span.innerHTML = names
-        div.appendChild(span)
-        parent.appendChild(div)
-    })
-}
+// function createTripNode(index, parent) {
+//     const div = document.createElement('div')
+//     div.classList.add('trip-node')
+//     const span = document.createElement('span')
+//     getOneTrip(1).then(function(names) {
+//         span.innerHTML = names
+//         div.appendChild(span)
+//         parent.appendChild(div)
+//     })
+// }
+
+
 
 function loadConstructor(trip_id) {
     window.location = '/trip_constructor.html?id='+trip_id
@@ -63,14 +54,16 @@ function createTripsList() {
     getAllTrips().then(function(list) {
         list.forEach(function(item) {
             const div = document.createElement('div')
-            div.classList.add('trip-node')
+            div.classList.add('trip-node', 'centered')
             div.addEventListener("click", function() {
                 loadConstructor(item.id)
             })
             const span = document.createElement('span')
             span.innerHTML = item.name
             div.appendChild(span)
+            const hr = document.createElement('hr')
             tripList.appendChild(div)
+            tripList.appendChild(hr)
         })
     })
 }

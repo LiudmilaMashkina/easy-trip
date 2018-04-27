@@ -17,3 +17,14 @@ function request(path, method = 'get', body = null) {
   })
 }
 
+function getOneTrip(index) {
+  const locations = [];
+  return request(`/trips/${index}`)
+  .then(function(response){
+      response.data.data.forEach( function(item) {
+          locations.push(item.location_a.location_name)
+          locations.push(item.location_b.location_name)
+      })
+      return locations;
+  }) // <-- TODO: add catch
+}

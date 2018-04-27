@@ -78,9 +78,17 @@ div#trips-list {
 }
 
 div.trip-node {
-  background-color: #ddd;
-  width: 200px;
-  height: 20px;
+  /* background-color: #ddd; */
+  width: 100%;
+}
+
+div.trip-node span {
+  font-size: 18px;
+  margin: 10px; 
+}
+
+hr {
+  width: 90%;
 }
 
 div.main_div {

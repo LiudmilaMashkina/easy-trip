@@ -2,7 +2,7 @@ const navBar = `
 <div class="main_div">
     <div class="top_nav flexed">
         <span id="logo" style="padding-left: 30px" onclick="openMainPage()">EASYtrip</span>
-        <div style="float:right; display: flex; align-items:center">
+        <div id="nav-buttons" style="float:right; display: flex; align-items:center">
             <button type="button" id="my_trips_btn" onclick="openMyTrips()">My trips</button>
             <div class="dropdown">
                 <button class="dropbtn" onclick="myFunction()">Log in
@@ -36,5 +36,4 @@ const signInForm = `
 {/* <button id="login" type="button">
                 Log in
             </button> */}
-
-
+            
