@@ -32,10 +32,11 @@ function getAllTrips() {
             const lastName = a[lastIndex].location_b.location_name
             const name = `${startName} - ${lastName}`
             const id = a[0].trip_id
+            console.log(id)
             trips.push({name, id})
         })
-        console.log(trips)
-        console.log(response.data.data.trip_id)
+        //console.log(trips)
+        console.log(response.data.data[0][0].trip_id)
         return trips
     }) // <-- TODO: add catch
 }
@@ -52,7 +53,7 @@ function createTripNode(index, parent) {
 }
 
 function loadConstructor(trip_id) {
-    window.location = '/trip_constructor.html'
+    window.location = '/trip_constructor.html?id='+trip_id
     console.log(trip_id)
     //document.querySelector('#test').innerHTML = trip_id
 }
