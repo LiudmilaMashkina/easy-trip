@@ -18,9 +18,26 @@ function loadTrip(trip_id) {
             if (index === 0 || index % 2 > 0)
                 return location
         })
-        document.querySelector('#test').innerHTML = result
+        const desk = document.querySelector('#desk')
+        renderTrip(result, desk)
         console.log(result)
     })
+}
+
+function renderTrip(arr, parent) {
+    const div = document.createElement('div')
+    div.classList.add('path-container', 'centered-desk')
+    arr.forEach((element, index) => {
+        const location = document.createElement('span')
+        location.innerHTML = element
+        div.appendChild(location)
+        if (index === 0 || index === arr.length - 1) {
+            location.style.color = "#2E8B57"
+            location.style.fontWeight = "bold"
+        }
+    });
+
+    parent.appendChild(div)
 }
 // const trip_id = searchString.id
 // loadTrip(trip_id)

@@ -7,51 +7,7 @@ function openConstructorPage() {
 
     })
     .catch(function(error){
-        showSignInForm()
-    })
-}
-
-function getAllTrips() {
-    const trips = []
-    return request('/trips')
-    .then(function(response){
-        response.data.data.forEach(a => {
-            const lastIndex = a.length - 1
-            const startName = a[0].location_a.location_name
-            const lastName = a[lastIndex].location_b.location_name
-            const name = `${startName} - ${lastName}`
-            const id = a[0].trip_id
-            console.log(id)
-            trips.push({name, id})
-        })
-        //console.log(trips)
-        console.log(response.data.data[0][0].trip_id)
-        return trips
-    }) // <-- TODO: add catch
-}
-
-function loadConstructor(trip_id) {
-    window.location = '/trip_constructor.html?id='+trip_id
-    console.log(trip_id)
-    //document.querySelector('#test').innerHTML = trip_id
-}
-
-function createTripsList() {
-    const tripList = document.querySelector('#trips-list');
-    getAllTrips().then(function(list) {
-        list.forEach(function(item) {
-            const div = document.createElement('div')
-            div.classList.add('trip-node', 'centered')
-            div.addEventListener("click", function() {
-                loadConstructor(item.id)
-            })
-            const span = document.createElement('span')
-            span.innerHTML = item.name
-            div.appendChild(span)
-            const hr = document.createElement('hr')
-            tripList.appendChild(div)
-            tripList.appendChild(hr)
-        })
+        showSignInForm('/trip_constructor.html')
     })
 }
 
@@ -66,16 +22,16 @@ function openMyTrips() {
         window.location = '/trips_list.html'
     })
     .catch(function(error){
-        showSignInForm()
+        showSignInForm('/trips_list.html')
     })
 }
 
-function showSignInForm() {
+function showSignInForm(path = '/index.html') {
     document.querySelector('#main_button').remove();
-    createSignInForm();
+    createSignInForm(path);
 }
 
-function createSignInForm() {
+function createSignInForm(path) {
     let form = document.querySelector('#sign_in_form');
     form.innerHTML = signInForm;
     form.style.visibility = "visible";
@@ -93,16 +49,12 @@ function createSignInForm() {
         .then(function(response){
           document.querySelector('#error').classList.add('hide-auth-error')
           localStorage.setItem('token', response.data.token)
-          window.location = '/trip_constructor.html'
+          window.location = path
         })
         .catch(function(error){
           document.querySelector('#error').classList.remove('hide-auth-error')
         })
       })
-}
-
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
 }
 
 //Close the dropdown if the user clicks outside of it

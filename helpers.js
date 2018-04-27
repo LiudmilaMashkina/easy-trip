@@ -30,15 +30,17 @@ function createNavButtons() {
   createUserButton(nav)
 }
 
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
 function createUserButton(parent) {
   request('/auth/validate_token')
   .then(function(response){
-      console.log(':)')
       let btn = document.querySelector('#userB')
       btn.innerHTML = userButton
   })
   .catch(function(error){
-      console.log(':(')
       let btn = document.querySelector('#userB')
       btn.innerHTML = logInButton
   })
